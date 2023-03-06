@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 폰트적용 </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .nt-serif {
+            font-family: 'Noto Serif KR', serif;
+        }
+
+/************/
+
+        @font-face {
+            font-family: "Pretendard-Regular";
+            src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+            font-weight: 400;
+            font-style: normal;
+        }
+        .pt{ font-family: "Pretendard-Regular"; }
+        @font-face {
+            font-family: "Pretendard-Bold";
+            src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+            font-weight: 700;
+            font-style: normal;
+        }
+        .pt-b{   font-family: "Pretendard-Bold"; }
+        body {
+            font-family: Pretendard-Regular, "Times New Roman", Dotum, "돋움", sans-serif;
+        }
+    </style>
+
+<body>
+    <p class="nt-serif">안녕하세요</p>
+    <p class="pt">안녕하세요</p>
+    <p class="pt-b">안녕하세요</p>
+</body>
+
+</html>
