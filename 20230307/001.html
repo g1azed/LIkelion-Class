@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> float </title>
+    <style>
+        .wrap{
+            background: skyblue;
+        }
+        .wrap:nth-child(2){
+            /* overflow: hidden; */
+        }
+        .wrap:nth-child(2)::after{
+            content:" ";
+            display: block;
+            clear: both;
+        }
+        .box{
+            background: royalblue;
+            width: 200px; height: 200px;
+            float: left;
+            margin-left: 20px;
+        }
+        .box:nth-child(3){
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box"> box </div>
+        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque perspiciatis nemo, ipsum sed blanditiis neque eligendi reprehenderit animi soluta, nobis enim porro ullam facilis? Aliquid a rerum dolorem natus laborum!</p>
+    </div>
+
+    <div class="wrap">
+        <div class="box">box</div>
+        <div class="box">box</div>
+    </div>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex nobis cum tenetur deleniti. Cupiditate fuga, nemo voluptas repellendus odit non corporis molestias. Magni velit explicabo quod reiciendis porro! Corrupti, aut?</p>
+</body>
+</html>
