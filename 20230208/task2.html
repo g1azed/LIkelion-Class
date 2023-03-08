@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> grid 실습 </title>
+    <style>
+        *{margin:0; padding:0;}
+        .grid{
+            width: 500px; height: 500px;
+            display: grid;
+            gap: 5px;
+            grid-template-areas: 
+                "a a a b b"
+                "a a a b b"
+                "c c d b b"
+                "e e f f f"
+                "e e f f f";
+                /* grid-template-columns: repeat(5, 1fr); */
+                /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+        }
+
+        .grid-item1{
+            background: royalblue;
+            grid-area: a;
+        }
+        .grid-item2{
+            background: salmon;
+            grid-area: b;
+        }
+        .grid-item3{
+            background: turquoise;
+            grid-area: c;
+        }
+        .grid-item4{
+            background: khaki;
+            grid-area: d;
+        }
+        .grid-item5{
+            background: seagreen;
+            grid-area: e;
+        }
+        .grid-item6{
+            background:red;
+            grid-area: f;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid">
+            <div class="grid-item grid-item1"> a</div>
+            <div class="grid-item grid-item2"> b</div>
+            <div class="grid-item grid-item3"> c</div>
+            <div class="grid-item grid-item4"> d</div>
+            <div class="grid-item grid-item5"> e</div>
+            <div class="grid-item grid-item6"> f</div>
+        </div>
+    </div>
+</body>
+</html>
