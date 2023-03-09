@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> calc 함수 </title>
+    <style>
+        .wrap{
+            background: royalblue;
+            height: 100px;
+            width: 1400px;
+            margin: auto;
+            max-width: calc(100% -  80px);
+        }
+        ul{
+            list-style-type: none;
+            margin:0; padding:0;
+        }
+        .float{
+            overflow: hidden;
+        }
+        .float li{
+
+            float: left;
+            background-color: gold;
+            width: calc((100% - (24px * 2)) / 3);
+        }
+        li:not(:first-child){
+            margin-left: 24px;;
+        }
+
+        .flex{
+            display: flex;
+            gap:24px;
+        }
+        .flex li{
+            background: gold;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        contents
+    </div>
+    
+    <ul class="float">
+        <li> 1 </li>
+        <li> 2 </li>
+        <li> 3 </li>
+    </ul>
+
+    <ul class="flex">
+        <li> 1 </li>
+        <li> 2 </li>
+        <li> 3 </li>
+    </ul>
+</body>
+</html>
