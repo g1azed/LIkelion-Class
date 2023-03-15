@@ -1,6 +1,10 @@
+/*reset*/
 body {
     margin: 0;
+    background: #fffaf0;
   }
+
+  /*layout*/
   header {
     background-color: white;
   }
