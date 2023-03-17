@@ -6,6 +6,7 @@
 body {
     width: 100%;
     height: auto;
+    background-color: salmon;
 }
 
 section {
@@ -42,16 +43,16 @@ section {
 }
 
 .eye-custom{
-    width: 150px; height: 150px;
+    width: 120px; height: 80px;
     border-radius: 45%;
     background: #FFDB5B;
     z-index: 1;
     transform: translate(-50%, -50%);
     position: absolute;
-    top: 420px;
-    left: 60px;
-    
+    top: 230px;
+    left: 250px;  
 }
+
 .left-eyes {
     width: 40px;
     height: 60px;
@@ -59,8 +60,8 @@ section {
     border-radius: 45% 42% 45% 40% / 51% 51% 37% 38%;
     transform: translate(-50%, -50%) rotate(35deg);
     position: absolute;
-    top: 420px;
-    left: 60px;
+    top: 170px;
+    left: 110px;
     z-index: 2;
 }
 
@@ -71,8 +72,9 @@ section {
     border-radius: 45% 42% 34% 52% / 47% 51% 29% 42%;
     transform: translate(-50%, -50%) rotate(-45deg);
     position: absolute;
-    top: 350px;
-    right: 30px;
+    top: 150px;
+    right: 50px;
+    z-index: 2;
 }
 
 .nose {
@@ -82,7 +84,8 @@ section {
     background-size: contain;
     position: absolute;
     bottom: 205px;
-    left: 150px;
+    left: 200px;
+    z-index: 2;
 }
 
 .left-ear {
@@ -93,8 +96,6 @@ section {
     position: absolute;
     bottom: 500px;
     left: -40px;
-
-
     animation: 3s ease-in-out infinite alternate left-ear;
 
 }
@@ -149,32 +150,61 @@ section {
     border-radius: 30%;
     border: 3px solid #191919;
     background: #191919;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     position: absolute;
     z-index: 100;
 
 }
 .whi_1{
-    bottom: 280px;
+    bottom: 240px;
     left: -130px;
     transform: rotate(15deg);
+    transform-origin:bottom right;
+    animation: 2s infinite whi-1;
 }
 .whi_2{
     bottom: 150px;
     left: -120px;
     transform: rotate(-25deg);
+    transform-origin:bottom right;
+    animation: 2s 0.5s infinite whi-2; 
+
 }
 .whi_3{
-    bottom: 280px;
+    bottom: 240px;
     right: -120px;
     transform: rotate(-15deg);
+    transform-origin:bottom left;  
+    animation: 2s 0.5s infinite whi-3; 
 }
 .whi_4{
     bottom: 140px;
     right: -110px;
     transform: rotate(25deg);
+    transform-origin:bottom left; 
+    animation: 2s 0.5s infinite whi-4;   
 }
 
+@keyframes whi-1{
+    0%{}
+    50%{   transform: rotate(25deg);}    
+    100%{   transform: rotate(15deg);}
+}
+@keyframes whi-2{
+    0%{}
+    50%{   transform: rotate(-30deg);}    
+    100%{   transform: rotate(-23deg);}
+}
+@keyframes whi-3{
+    0%{}
+    50%{   transform: rotate(-30deg);}    
+    100%{   transform: rotate(-4deg);}
+}
+@keyframes whi-4{
+    0%{}
+    50%{   transform: rotate(30deg);}    
+    100%{   transform: rotate(15deg);}
+}
 .tail{
     width: 100px; height: 250px;
     border-radius: 20%;
@@ -206,6 +236,7 @@ section {
     position: absolute;
     left: -20px;
     bottom: -10px;
+    animation: 3s infinite left-leg-ani;
 }
 .left-leg-inner{
     width: 100px; height: 20px;
@@ -216,6 +247,11 @@ section {
     top:40px;
     left: 20px;
 }
+@keyframes left-leg-ani{
+    0%{transform: scale(1, 1);}
+    50%{ transform: scale(0.3, 0.5);}
+    100%{ transform: scale(1.2, 1.1);}
+}
 .right-legs{
     width: 150px; height: 75px;
     border-radius: 29% 42% 22% 29% / 18% 22% 28% 42% ;
@@ -223,6 +259,7 @@ section {
     position: absolute;
     right: -30px;
     bottom: -10px;
+    animation: 3s 2s infinite left-leg-ani;
 }
 .right-leg-inner{
     width: 100px; height: 20px;
@@ -232,4 +269,9 @@ section {
     position: absolute;
     top:40px;
     right: 20px;
+}
+@keyframes right-leg-ani{
+    0%{transform: scale(1, 1);}
+    50%{ transform: scale(0.3, 0.5);}
+    100%{ transform: scale(1.2, 1.1);}
 }
