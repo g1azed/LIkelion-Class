@@ -1,108 +1,168 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.notosanskr * { 
- font-family: 'Noto Sans KR', sans-serif;
-}
-
-*{
+.notosanskr * {
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-:root{
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    pointer-events: auto;
+}
+
+:root {
     --bg-color: #EAE8FE;
     --box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
     --radius: 5px;
 }
-body{
+
+button {
+    cursor: pointer;
+}
+/* JS로 클릭했을때 박스쉐도우 없애고 border 색 넣기 */
+.click-active{
+    box-shadow: none;
+    border: 3px solid #6327FE;
+}
+
+body {
     background: rgba(234, 232, 254, 1);
 
 }
 
-main{
+header {
+    width: 100%;
+    height: 204px;
+}
+
+header img {
     display: block;
+    width: 436px;
+    height: 200px;
+    object-fit: cover;
     margin: 0 auto;
 }
 
+main {
+    display: block;
+
+}
+
+.machine-wrap {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap:wrap;
+    gap: 28px;
+}
+@media( max-width: 768px) {
+    main{
+        margin-bottom: 100px;
+    }
+}
 /* menu-area  */
-section.menu-area-wrap{
+section.menu-area-wrap {
     width: 360px;
     padding: 30px 27px;
     box-sizing: border-box;
     background-color: #fff;
-
 }
-.menu-area{
+
+.menu-area {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 12px;
+
+    box-sizing: content-box;
 }
-/* JS로 클릭했을때 박스쉐도우 없애고 border 색 넣기 */
-.menu-area .menu{
+
+
+.menu-area .menu {
+    box-sizing: border-box;
     box-shadow: var(--box-shadow);
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.menu-area .menu p{
-    width: 73px; 
+
+
+.menu-area .menu p {
+    width: 73px;
     background: url(./img/cola_.png);
     background-repeat: no-repeat;
     background-position: top center;
     padding: 73px 0 7px 0;
-
+    margin: 0;
     text-align: center;
     font-size: 9px;
     font-weight: 500;
 }
-.menu-area .menu:nth-child(2) p{ 
-    background: url(./img/cola_purple.png); 
+
+.menu-area .menu:nth-child(2) p {
+    background: url(./img/cola_purple.png);
     background-repeat: no-repeat;
     background-position: top center;
     padding: 73px 0 7px 0;
 }
-.menu-area .menu:nth-child(2){
+
+.menu-area .menu:nth-child(2) {
     position: relative;
 }
-.menu-area .menu:nth-child(2)::after{
-    content: url(./img/soldout.png); 
+
+.menu-area .menu:nth-child(2)::after {
+    content: url(./img/soldout.png);
     padding: 45px 15px 35px 15px;
     box-sizing: border-box;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     position: absolute;
-    top:0; left:0;
+    top: 0;
+    left: 0;
 }
-.menu-area .menu:nth-child(3) p{ 
-    background: url(./img/cola_yellow.png); 
+
+.menu-area .menu:nth-child(3) p {
+    background: url(./img/cola_yellow.png);
     background-repeat: no-repeat;
     background-position: top center;
     padding: 73px 0 7px 0;
 }
-.menu-area .menu:nth-child(4) p{ 
-    background: url(./img/cola_blue.png); 
+
+.menu-area .menu:nth-child(4) p {
+    background: url(./img/cola_blue.png);
     background-repeat: no-repeat;
     background-position: top center;
     padding: 73px 0 7px 0;
 }
-.menu-area .menu:nth-child(5) p{ 
-    background: url(./img/cola_green.png); 
+
+.menu-area .menu:nth-child(5) p {
+    background: url(./img/cola_green.png);
     background-repeat: no-repeat;
     background-position: top center;
     padding: 73px 0 7px 0;
 }
-.menu-area .menu:nth-child(6) p{ 
-    background: url(./img/cola_orange.png); 
+
+.menu-area .menu:nth-child(6) p {
+    background: url(./img/cola_orange.png);
     background-repeat: no-repeat;
     background-position: top center;
     padding: 73px 0 7px 0;
 }
+
 /* 왜 백그라운드 속성들이 다 각자 먹히는지,,,? 모르겠음 같은클래스아닌가? */
 
-.menu-area .menu button{
-    width: 70px; height: 22px;
+.menu-area .menu button {
+    width: 70px;
+    height: 22px;
     border-radius: 50px;
     border: none;
     background: rgba(99, 39, 254, 1);
@@ -117,61 +177,77 @@ section.menu-area-wrap{
 
 
 /* result-area  */
-div.result-area{
+div.result-area {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-columns: 200px 100px;
+    grid-template-rows: 32px 32px 96px;
     gap: 12px;
     margin-top: 20px;
 
-    font-size: 14px; 
+    font-size: 14px;
     font-weight: 500;
     line-height: 20px;
 }
 
-div.result-area .money-left{
+div.result-area .money-left {
     background: var(--bg-color);
     border-radius: var(--radius);
     padding: 6px 10px;
     box-sizing: border-box;
     color: #191919;
-    vertical-align:bottom;
+    vertical-align: bottom;
 
-}
-div.result-area .money-left span:nth-child(2){
-    text-align: right;
-    border: 1px solid red;
+    display: flex;
 }
 
-div.result-area .money-return{
+div.result-area .money-left span:nth-child(2) {
+    margin-left: auto;
+}
+
+div.result-area .money-return button {
     box-shadow: var(--box-shadow);
     border-radius: var(--radius);
-    text-align: center; 
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    font-size: 13px;
+    font-weight: 500;
 }
-.result_item input{
-    width: 100%; height: 100%;
+
+.result_item input {
+    width: 100%;
+    height: 100%;
     padding: 0;
     border-width: 0;
     border: 1px solid rgba(189, 189, 189, 1);
     border-radius: var(--radius);
+    text-indent: 6px;
 }
-.result_item input::placeholder{
+
+.result_item input::placeholder {
     color: rgba(189, 189, 189, 1);
     font-size: 13px;
     /* line-height: 18px; */
-    font-weight: 500;;
+    font-weight: 500;
+    ;
     margin: 6px;
 }
-div.result-area .deposit button{
+
+div.result-area .deposit button {
     box-shadow: var(--box-shadow);
     border-radius: var(--radius);
     border: none;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     background-color: #fff;
-    
-    font-size: 14px; font-weight: 500;;
+    font-size: 13px;
+    font-weight: 500;
+
 }
-div.result_item.select{
+
+div.result_item.select {
     background-color: var(--bg-color);
     border: 1px solid rgba(189, 189, 189, 1);
     border-radius: var(--radius);
@@ -181,38 +257,162 @@ div.result_item.select{
     flex-direction: column;
     padding: 12px 10px;
 }
-div.select .select-item{
+
+.select::-webkit-scrollbar {
+    width: 10px;
+}
+
+.select::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    background-clip: padding-box;
+    border-right: 4px solid var(--bg-color);
+    border-top: 4px solid var(--bg-color);
+    border-bottom: 4px solid var(--bg-color);
+    border-radius: 50px;
+
+}
+
+.select::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+
+}
+
+div.select .select-item {
     padding: 12px 10px 12px 10px;
     background: #fff;
     border-radius: var(--radius);
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
-
     margin-bottom: 6px;
 
 }
 
-div.select-item p{
-    /* background-image: url(./img/cola_.png); */
-    background-repeat: no-repeat;
-    background-size: contain;
+div.select-item p {
+    font-size: 9px;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
 
 }
-div.select-item img{
+
+div.select-item img {
     /* width: max-content; */
-    width: 18px; height: 32px;
+    width: 18px;
+    height: 32px;
     object-fit: cover;
 }
-div.select .num{
-    width: 30px; height: 30px;
-    font-size: 14px; font-weight: 500;
+
+.num {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 500;
     border-radius: var(--radius);
     box-shadow: var(--box-shadow);
-    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
-div.money-gain{
+div.money-gain button {
     box-shadow: var(--box-shadow);
     border-radius: var(--radius);
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #6327FE;
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* money-area */
+section.money-area {
+    width: 360px;
+    padding: 9px 27px;
+    box-sizing: border-box;
+    background-color: #fff;
+
+    margin-bottom: 20px;
+}
+
+section.money-area .ready-money {
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    display: flex;
+    padding: 6px 10px;
+}
+
+section.money-area .ready-money p {
+    color: #191919;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+section.money-area .ready-money p:first-child {
+    margin-right: auto;
+    font-weight: 500;
+}
+
+
+/* take-area */
+section.take-area {
+    background-color: #fff;
+    padding: 26px 26px;
+}
+
+.take-area h2 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+
+    /* margin-bottom: 13px; */
+}
+
+.take-area .result_item-wrap {
+    background-color: var(--bg-color);
+    height: 365px;
+    overflow-y: scroll;
+    padding: 12px;
+    box-sizing: border-box;
+    margin: 13px 0 6px 0;
+
+}
+
+.result_item-wrap .result-item {
+    background-color: #fff;
+    padding: 6px 9px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    border-radius: var(--radius);
+}
+
+.result_item-wrap .result-item img {
+    width: 18px;
+    height: 32px;
+    object-fit: cover;
+
+}
+
+.result_item-wrap .result-item p {
+    margin-right: auto;
+    margin-left: 12px;
+
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 13px;
+}
+
+.take-area p {
+    text-align: end;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 17px;
 }
