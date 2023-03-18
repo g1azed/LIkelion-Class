@@ -1,0 +1,218 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+:root{
+    --bg-color: #EAE8FE;
+    --box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+    --radius: 5px;
+}
+body{
+    background: rgba(234, 232, 254, 1);
+
+}
+
+main{
+    display: block;
+    margin: 0 auto;
+}
+
+/* menu-area  */
+section.menu-area-wrap{
+    width: 360px;
+    padding: 30px 27px;
+    box-sizing: border-box;
+    background-color: #fff;
+
+}
+.menu-area{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+}
+/* JS로 클릭했을때 박스쉐도우 없애고 border 색 넣기 */
+.menu-area .menu{
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 10px;
+}
+.menu-area .menu p{
+    width: 73px; 
+    background: url(./img/cola_.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 73px 0 7px 0;
+
+    text-align: center;
+    font-size: 9px;
+    font-weight: 500;
+}
+.menu-area .menu:nth-child(2) p{ 
+    background: url(./img/cola_purple.png); 
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 73px 0 7px 0;
+}
+.menu-area .menu:nth-child(2){
+    position: relative;
+}
+.menu-area .menu:nth-child(2)::after{
+    content: url(./img/soldout.png); 
+    padding: 45px 15px 35px 15px;
+    box-sizing: border-box;
+    width: 100%; height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    position: absolute;
+    top:0; left:0;
+}
+.menu-area .menu:nth-child(3) p{ 
+    background: url(./img/cola_yellow.png); 
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 73px 0 7px 0;
+}
+.menu-area .menu:nth-child(4) p{ 
+    background: url(./img/cola_blue.png); 
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 73px 0 7px 0;
+}
+.menu-area .menu:nth-child(5) p{ 
+    background: url(./img/cola_green.png); 
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 73px 0 7px 0;
+}
+.menu-area .menu:nth-child(6) p{ 
+    background: url(./img/cola_orange.png); 
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 73px 0 7px 0;
+}
+/* 왜 백그라운드 속성들이 다 각자 먹히는지,,,? 모르겠음 같은클래스아닌가? */
+
+.menu-area .menu button{
+    width: 70px; height: 22px;
+    border-radius: 50px;
+    border: none;
+    background: rgba(99, 39, 254, 1);
+    color: #fff;
+
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    line-height: 12px;
+}
+
+
+
+/* result-area  */
+div.result-area{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 3fr;
+    gap: 12px;
+    margin-top: 20px;
+
+    font-size: 14px; 
+    font-weight: 500;
+    line-height: 20px;
+}
+
+div.result-area .money-left{
+    background: var(--bg-color);
+    border-radius: var(--radius);
+    padding: 6px 10px;
+    box-sizing: border-box;
+    color: #191919;
+    vertical-align:bottom;
+
+}
+div.result-area .money-left span:nth-child(2){
+    text-align: right;
+    border: 1px solid red;
+}
+
+div.result-area .money-return{
+    box-shadow: var(--box-shadow);
+    border-radius: var(--radius);
+    text-align: center; 
+}
+.result_item input{
+    width: 100%; height: 100%;
+    padding: 0;
+    border-width: 0;
+    border: 1px solid rgba(189, 189, 189, 1);
+    border-radius: var(--radius);
+}
+.result_item input::placeholder{
+    color: rgba(189, 189, 189, 1);
+    font-size: 13px;
+    /* line-height: 18px; */
+    font-weight: 500;;
+    margin: 6px;
+}
+div.result-area .deposit button{
+    box-shadow: var(--box-shadow);
+    border-radius: var(--radius);
+    border: none;
+    width: 100%; height: 100%;
+    background-color: #fff;
+    
+    font-size: 14px; font-weight: 500;;
+}
+div.result_item.select{
+    background-color: var(--bg-color);
+    border: 1px solid rgba(189, 189, 189, 1);
+    border-radius: var(--radius);
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+    padding: 12px 10px;
+}
+div.select .select-item{
+    padding: 12px 10px 12px 10px;
+    background: #fff;
+    border-radius: var(--radius);
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 6px;
+
+}
+
+div.select-item p{
+    /* background-image: url(./img/cola_.png); */
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+div.select-item img{
+    /* width: max-content; */
+    width: 18px; height: 32px;
+    object-fit: cover;
+}
+div.select .num{
+    width: 30px; height: 30px;
+    font-size: 14px; font-weight: 500;
+    border-radius: var(--radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+div.money-gain{
+    box-shadow: var(--box-shadow);
+    border-radius: var(--radius);
+}
