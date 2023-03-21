@@ -5,23 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> html 구조잡기 실습 </title>
+    <title> 정글 시네마</title>
     <link href="./common.css" rel="stylesheet">
     <link href="./index.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-            <h1> 정글 시네마 영화 목록 </h1>
-            <nav>
-                <ul>
-                    <li> <button type="button">현재상영영화</button> </li>
-                    <li> <button type="button"> 개봉예정영화</button> </li>
-                    <li> <button type="button">박스오피스 </button> </li>
-                </ul>
-            </nav>
+    <header class="cinema-header">
+        <h1> 정글 시네마 영화 목록 </h1>
+        <nav class="cinema-nav">
+            <ul>
+                <li> <button type="button" class="active">현재 상영 영화</button> </li>
+                <li> <button type="button">개봉 예정 영화</button> </li>
+                <li> <button type="button">박스 오피스 </button> </li>
+            </ul>
+        </nav>
     </header>
-    <main> </main>
+    <main>
+
+        <section class="now-cinema">
+            <div class="card-wrap">
+
+                <div class="card">
+                    <img src="./img/poster-img1.jpg" alt="포스터이미지-1">
+                    <h3> 위니브 월드 : 새로운 시대</h3>
+                    <ul class="ul-top">
+                        <li>개요 <span> 판타지 </span></li>
+                        <li>평점 <span> 9.05 </span></li>
+                    </ul>
+                    <ul class="ul-bottom">
+                        <li>개봉 <span> 2021.03.27 </span></li>
+                        <li>출연 <span> 라이캣, 소울곰, 개리씨 </span></li>
+                    </ul>
+                </div>
+                <div class="card-btn">
+                    <a href="#" alt="예매하기"> 예매하기 </a>
+                    <button type="button"> 예고편 </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
     <footer> </footer>
 </body>
 
