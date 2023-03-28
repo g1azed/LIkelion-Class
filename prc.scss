@@ -79,5 +79,6 @@
 // 4. if / elif / elif .... / else
 
 .btn {
-    @include button(red);
+    @include button(red); // 파선아실 파라미터 아규먼트
+                            // 물데네전세표응
 }
