@@ -1,0 +1,83 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-item {
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+}
+
+.product {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.product-item {
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+}
+
+//////////////
+
+@mixin flex($direction) {
+    display: flex;
+    justify-content: $direction;
+    align-items: $direction;
+}
+
+@mixin item($length, $radius) {
+    width: $length *1px;
+    height: $length * 1px;
+    border-radius: $radius;
+}
+
+.card {
+    @include flex(center);
+}
+
+.card-item {
+    @include item(100, 10%)
+}
+
+.product {
+    @include flex(right);
+}
+
+.product-item {
+    @include item(200, 25%)
+}
+
+
+///////////////////////////
+/// 
+/// 
+@mixin button($color) {
+    color: $color;
+    @if $color == black {
+        font-size: 32px;
+        background-color: white;
+    } @else if $color == white {
+        font-size: 24px;
+        background-color: black;
+    } @else if $color == green {
+        font-size: 24px;
+        background-color: black;
+    } @else {
+        font-size: 16px;
+        background-color: blue;
+    }
+}
+
+// 1. if 단독
+// 2. if / else
+// 3. if / elif / else
+// 4. if / elif / elif .... / else
+
+.btn {
+    @include button(red);
+}
