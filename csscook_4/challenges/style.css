@@ -22,6 +22,8 @@ ul,li{
 
 .wrapper_2{
 	background: #673399;
+	box-sizing: content-box;
+	height: auto;
 }
 .all-wrap{
 	max-width: 1080px;
@@ -30,7 +32,7 @@ ul,li{
 
 }
 .sec2_header{
-	/* margin: 100px 0; */
+	padding-top: 100px;
 	display: flex;
 	align-items: center;
 }
@@ -57,7 +59,9 @@ ul,li{
 	/* margin-right:300px; */
 }
 
-
+.sec2_main{
+	padding: 100px 0;
+}
 .box{
 	box-shadow: inset 0 0 10px #fff;;
 	display: flex;
@@ -140,6 +144,7 @@ ul,li{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-bottom: 100px;
 }
 header.sec1_header h1{
 	font-size: 40px;
@@ -158,13 +163,19 @@ header.sec1_header button{
 }
 article.card{
 	background: #fff;
+	flex-basis: 33%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	position: relative;
 }
 section.section-box1{
 	display: flex;
 	flex-direction: row;
 	gap: 24px;
 	flex-wrap:nowrap;
-	flex: 1 1 0;
+	flex-basis: 33%;
+
 }
 .card .represent-img{
 	width: 100%;
@@ -172,9 +183,16 @@ section.section-box1{
 }
 
 /* card styling */
+.card img.card-badge{
+	background: transparent;
+	width: 30%;
+	position: absolute;
+	top:-9px; left: -9px;
+}
 .card .text-wrap{
 	margin-left: 24px;
 	margin: 24px 0 24px 24px ;
+	box-sizing: border-box;
 }
 
 .card .text-wrap .tag-wrap p{
@@ -195,23 +213,38 @@ section.section-box1{
 }
 .card .text-wrap > p{
 	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 6; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap:break-word; 
+	line-height: 1.2em;
+	height: 45%;
+
 }
 
 /* card-footer */
+
 .card .card-footer{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-top: 2px solid #191919;
+	border-top: 2px solid #eee;
 
-	margin-left: 24px;
+	margin-left: 24px; margin-top: auto;
 	padding: 19px 0;
 }
 .card .card-footer p{
 	font-size: 12px;
+	color: #acacac;
 }
 .card .card-footer .profile-img-wrap{
 	margin-right: 20px;
+}
+.first-profile-img{
+	/* display: none; */
+	visibility: hidden;
 }
 .card .card-footer .profile-img-wrap img{
 	width: 30px; height: 30px;
