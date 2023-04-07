@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MYMO Type B</title>
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/swiper.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Pretendard-Bold';
+            src: local("Pretendard-Bold"), url("./font/Pretendard-Bold.woff");
+            font-weight: 900;
+            font-style: normal
+        }
+
+        body {
+            max-width: 768px;
+            margin: 0 auto !important;
+        }
+
+        body img {
+            display: inline-block;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .body {
+            padding-top: 11.3%;
+        }
+
+
+        /* View Account */
+        .blind {
+            display: none;
+        }
+
+        .btn_back {
+            margin-left: 12.2%;
+            width: 6.6%;
+            cursor: pointer;
+        }
+
+        .btn_more {
+            margin-right: 6.6%;
+            width: 6.6%;
+        }
+
+        .btn_tab {
+            width: 40.47%;
+        }
+
+        .hidden {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden !important;
+            touch-action: none;
+        }
+
+        /* sec1 */
+        #section1 {
+            background: #F7F7F7;
+            position: relative;
+        }
+
+        #section1 .top_btn {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #section1 .top {
+            position: relative;
+            margin-top: 14.16%;
+            margin-left: 12.2%;
+            width: 81.1%;
+        }
+
+        #section1 .top .top_bottom {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 13.9%;
+        }
+
+        #section1 .top .top_bottom img {
+            width: 48.63%;
+        }
+
+        #section1 .top .top_bottom img:last-child {
+            cursor: pointer;
+        }
+
+        #section1 .top img {
+            width: 100%;
+        }
+
+        #section1 .top .top_num {
+            position: absolute;
+            top: 18%;
+            left: 0;
+        }
+
+        #section1 .top .top_num span {
+            font-family: 'Pretendard-Bold';
+            font-weight: 700;
+            font-size: clamp(1px, calc(100vw * 59 / 768), 59px);
+            letter-spacing: -0.03em;
+            vertical-align: bottom;
+        }
+
+        #section1 .top .top_num span.count_won {
+            font-size: clamp(1px, calc(100vw * 30 / 768), 30px);
+        }
+
+        #section1 .view {
+            position: relative;
+            margin-top: 11.1%;
+        }
+
+        #section1 .view .view_btn {
+            position: absolute;
+            top: 10.76%;
+            right: 6.6%;
+            width: 5.5%;
+            cursor: pointer;
+        }
+
+        #section1 .view .tab {
+            position: absolute;
+            left: 12.2%;
+            display: flex;
+            justify-content: space-between;
+            width: 35%;
+            cursor: pointer;
+        }
+
+        #section1 .view .tab1 {
+            top: 4.67%;
+        }
+
+        #section1 .view .tab2 {
+            top: 4.33%;
+        }
+
+        #section1 .view .progressbar {
+            position: absolute;
+            top: 78.3%;
+            left: 12.2%;
+            width: 81.1%;
+            height: 3.47%;
+        }
+
+        #section1 .view .progressbar .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #4522BD;
+            opacity: 0.2;
+            border-radius: calc(100vw * 12 / 360);
+        }
+
+        #section1 .view .progressbar .bar {
+            width: 0;
+            height: 100%;
+            background: #6732F9;
+            border-radius: calc(100vw * 12 / 360);
+            transition: width .5s;
+        }
+
+        #section1 .period {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #section1 .period .back {
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0.6;
+            width: 100%;
+            height: 100%;
+        }
+
+        #section1 .period .set {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            background: url(./img/view_period.png);
+            z-index: 3;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #section1 .period .set .list_top {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 12.2%;
+            padding-top: 11.1%;
+            padding-right: 6.66%;
+        }
+
+        #section1 .period h2 {
+            font-family: 'Pretendard-Bold';
+            font-weight: 700;
+            font-size: clamp(1px, calc(100vw * 16 / 360), 34px);
+            letter-spacing: -0.03em;
+        }
+
+        #section1 .period .close {
+            width: 6.6%;
+            cursor: pointer;
+        }
+
+        #section1 .period p {
+            font-family: 'Pretendard-Bold';
+            font-weight: 700;
+            font-size: clamp(1px, calc(100vw * 13 / 360), 27px);
+            letter-spacing: -0.03em;
+            color: #999;
+            margin-bottom: 3.3%;
+        }
+
+        #section1 .period .list1 {
+            margin-left: 12.2%;
+            margin-top: 7.77%;
+        }
+
+        #section1 .period .list2,
+        .list3 {
+            margin-left: 12.2%;
+            margin-top: 5.5%;
+        }
+
+        #section1 .period .list2 div {
+            display: flex;
+        }
+
+        #section1 .period .list3 div {
+            display: flex;
+        }
+
+        #section1 .period div.list {
+            display: inline-block;
+            font-family: 'Pretendard-Bold';
+            font-weight: 700;
+            font-size: clamp(1px, calc(100vw * 12 / 360), 25.6px);
+            white-space: nowrap;
+            border: clamp(1px, calc(100vw * 1 / 360), 2.13px) solid #ddd;
+            padding: 2.5% 5.5%;
+            border-radius: clamp(12px, calc(100vw * 12 / 360), 25.6px);
+            width: auto !important;
+            height: clamp(36px, calc(100vw * 36 / 360), 76.8px);
+            margin-right: 1.66%;
+            line-height: 150%;
+            cursor: pointer;
+        }
+
+        #section1 .period .list.active {
+            border: clamp(1px, calc(100vw * 1 / 360), 2.13px) solid #6732F9;
+        }
+
+        #section1 .period .btn_ok {
+            width: 81.1%;
+            margin-left: 12.2%;
+            padding-top: 11.6%;
+            padding-bottom: 11.1%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+        </nav>
+    </header>
+
+    <section id="section1" class="body">
+        <div class="top_btn">
+            <img class="btn_back" src="./img/btn_back.png" alt="" />
+            <img class="btn_more" src="./img/btn_more.png" alt="" />
+        </div>
+
+        <div class="top">
+            <img src="./img/view_top.png" alt="" />
+            <div class="top_num">
+                <span id="count"></span><span class="count_won">원</span>
+            </div>
+            <div class="top_bottom">
+                <img src="./img/view_top_btn1.png" alt="" />
+                <img src="./img/view_top_btn2.png" alt="" />
+            </div>
+        </div>
+
+        <div class="view view1">
+            <img src="./img/view_01.png" alt="" />
+            <img class="view_btn" src="./img/view_01_btn.png" alt="" />
+            <div class="tab tab1">
+                <img class="btn_tab" src="./img/view_tab_01_active.png" alt="" />
+                <img class="btn_tab" src="./img/view_tab_02.png" alt="" />
+            </div>
+        </div>
+
+        <div class="view view2 blind">
+            <img src="./img/view_02.png" alt="" />
+            <div class="progressbar">
+                <div class="background"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="tab tab2">
+                <img class="btn_tab" src="./img/view_tab_01.png" alt="" />
+                <img class="btn_tab" src="./img/view_tab_02_active.png" alt="" />
+            </div>
+        </div>
+
+        <div class="period blind">
+            <div class="back"></div>
+            <div class="set">
+                <div class="list_top">
+                    <h2>조회기간 설정</h2>
+                    <img class="close" src="./img/view_period_x.png" alt="" />
+                </div>
+
+                <div class="list1">
+                    <p>기간선택</p>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide list active">오늘</div>
+                            <div class="swiper-slide list">1개월</div>
+                            <div class="swiper-slide list">3개월</div>
+                            <div class="swiper-slide list">6개월</div>
+                            <div class="swiper-slide list">직접입력</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list2">
+                    <p>거래유형</p>
+                    <div>
+                        <div class="list active">전체</div>
+                        <div class="list">입금</div>
+                        <div class="list">출금</div>
+                    </div>
+                </div>
+                <div class="list3">
+                    <p>정렬순서</p>
+                    <div>
+                        <div class="list active">최신순</div>
+                        <div class="list">과거순</div>
+                    </div>
+                </div>
+                <img class="btn_ok" src="./img/btn_ok.png" alt="" />
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="./js/swiper-bundle.min.js"></script>
+<script>
+    AOS.init();
+
+    $(document).ready(function () {
+        //탭
+        $('.view1 .tab .btn_tab').eq(1).click(function () {
+            $('.view1').addClass('blind')
+            $('.view2').removeClass('blind')
+            $('.view2').addClass('bar')
+        })
+        $('.view2 .tab .btn_tab').eq(0).click(function () {
+            $('.view2').addClass('blind')
+            $('.view1').removeClass('blind')
+            $('.view2').removeClass('bar')
+        })
+
+
+        //프로그레스바
+        var isVisible = false;
+
+        $(window).on('scroll', function () {
+            if (check($('.progressbar')) && !isVisible) {
+                $('#section1 .view .progressbar .bar').css('width', '73.28%')
+            } else {
+                $('#section1 .view .progressbar .bar').css('width', '0%')
+            }
+        });
+
+        function check(elm, eval) {
+            eval = eval || "object visible";
+            var viewportHeight = $(window).height(), // Viewport Height
+                scrolltop = $(window).scrollTop(), // Scroll Top
+                y = $(elm).offset().top,
+                elementHeight = $(elm).height()
+
+            if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)))
+            if (eval == "above") return ((y < (viewportHeight + scrolltop)))
+        }
+
+        //총 자산 증감
+        function numberCounter(target_frame, target_number) {
+            this.count = 0;
+            this.diff = 0;
+            this.target_count = parseInt(target_number);
+            this.target_frame = document.getElementById(target_frame);
+            this.timer = null;
+            this.counter();
+        };
+        numberCounter.prototype.counter = function () {
+            var self = this;
+            this.diff = this.target_count - this.count;
+
+            if (this.diff > 0) {
+                self.count += Math.ceil(this.diff / 4);
+            }
+
+            this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            if (this.count < this.target_count) {
+                this.timer = setTimeout(function () { self.counter(); }, 10);
+            } else {
+                clearTimeout(this.timer);
+            }
+        };
+        new numberCounter("count", 34523040)
+
+
+        // 조회기간 설정
+        $('.view_btn').click(function () {
+            $('.period').removeClass('blind')
+            $('#section1').addClass('hidden');
+        })
+        $('.period .close').click(function () {
+            $('.period').addClass('blind')
+            $('#section1').removeClass('hidden');
+        })
+        $('.period .btn_ok').click(function () {
+            $('.period').addClass('blind')
+            $('#section1').removeClass('hidden');
+        })
+
+        $('.swiper-wrapper .list').click(function () {
+            $('.swiper-wrapper .list').removeClass('active')
+            $(this).addClass('active')
+        })
+        $('.list2 .list').click(function () {
+            $('.list2 .list').removeClass('active')
+            $(this).addClass('active')
+        })
+        $('.list3 .list').click(function () {
+            $('.list3 .list').removeClass('active')
+            $(this).addClass('active')
+        })
+
+        //페이지 이동
+        $('.btn_back').click(function () {
+            location.href = "index.html";
+        })
+        $('.top_bottom img').eq(1).click(function () {
+            location.href = "transfer.html";
+        })
+
+        //swiper
+        var swiper = new Swiper(".swiper-container", {
+            slidesPerView: 4.5,
+        });
+    })
+</script>
+
+</html>
