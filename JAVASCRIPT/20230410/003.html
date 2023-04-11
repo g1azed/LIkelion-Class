@@ -56,6 +56,7 @@
             item.addEventListener('click', () => {
                 canvas.classList.remove('yellow', 'red', 'green');
                 if (item.classList.contains("btn-red")) {
+                    // contains : class명 찾아서 boolean으로 반환해줌
                     canvas.classList.add('red');
                 } else if (item.classList.contains("btn-yellow")) {
                     canvas.classList.add('yellow');
