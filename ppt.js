@@ -43,3 +43,12 @@ const array1 = [1, 4, 9, 16];
 
 
 arr.map(function(element, index, array){  }, this);
+
+
+
+
+
+
+
+
+
