@@ -79,25 +79,13 @@
       </article>
 
       <article id="calendar">
-        <h2>나의 머찐 달력</h2>
-        <table>
+        <h2 class="a11y-hidden">나의 머찐 달력</h2>
+        <table class="table-calendar">
           <caption>
             <time datetime="">
-              <span class="year"> </span>년
-              <span class="month"> </span>월
+              <span class="month"> 4 </span>월
             </time>
           </caption>
-
-          <tr>
-            <th class="scope"> 일 </th>
-            <th class="scope"> 월 </th>
-            <th class="scope"> 화 </th>
-            <th class="scope"> 수 </th>
-            <th class="scope"> 목 </th>
-            <th class="scope"> 금 </th>
-            <th class="scope"> 토 </th>
-          </tr>
-
           <tr>
             <td> </td>
             <td> </td>
@@ -162,20 +150,32 @@
                 <td> &nbsp </td>
             </tr> -->
         </table>
-        <button type="button" class="prev">이전달</button>
-        <button type="button" class="next">다음달</button>
 
       </article>
     </div>
     <!-- left wrap end-->
 
+    <div class="right-wrap">
+      <article class="planner">
+        <h2 class="a11y-hidden"> 오늘의 할 일 </h2>
 
-    <article class="planner">
-      <!-- <input type="text" id="new-task" placeholder="할 일 추가">
-      <button id="add-task">추가</button>
-      <ul id="task-list"></ul>
-      <button id="clear-all">전체 삭제</button> -->
-    </article>
+        <form>
+          <label for="new-item"> 오늘의 할 일 추가 : </label>
+          <input type="text" id="new-item" size="100" maxlength="30">
+          <button type="submit"> + </button>
+        </form>
+
+        <div id="item-list">
+          <ul></ul>
+          <div class="button-wrap">
+            <button id="select-all"> Checked All</button>
+            <button id="delete-all"> Deleted All</button>
+          </div>
+        </div>
+        
+      </article>
+    </div>
+
 
 
   </main>

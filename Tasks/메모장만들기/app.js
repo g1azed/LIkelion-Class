@@ -1,82 +1,79 @@
-const taskInput = document.querySelector('#new-task');
-const addTaskButton = document.querySelector('#add-task');
-const taskList = document.querySelector('#task-list');
-const clearAllButton = document.querySelector('#clear-all');
+const form = document.querySelector('form')
+    const input = document.querySelector('#new-item')
+    const itemList = document.querySelector('#item-list ul')
+    const selectAllButton = document.querySelector('#select-all')
+    const deleteAllButton = document.querySelector('#delete-all')
+    let items = JSON.parse(localStorage.getItem('items')) || []
 
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-function addTask() {
-  const task = {
-    description: taskInput.value,
-    completed: false,
-  };
-  tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  displayTasks();
-  taskInput.value = '';
-}
-
-function deleteTask(index) {
-  tasks.splice(index, 1);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  displayTasks();
-}
-
-function toggleComplete(index) {
-  tasks[index].completed = !tasks[index].completed;
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  displayTasks();
-}
-
-function editTask(index) {
-  const li = document.querySelectorAll('li')[index];
-  const task = tasks[index];
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.value = task.description;
-  li.innerHTML = '';
-  li.appendChild(input);
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      task.description = input.value;
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-      displayTasks();
-    } else if (e.key === 'Escape') {
-      displayTasks();
+    function addItem(e) {
+      e.preventDefault()
+      if (!input.value) return
+      const item = {
+        text: input.value,
+        completed: false
+      }
+      items.push(item)
+      localStorage.setItem('items', JSON.stringify(items))
+      input.value = ''
+      displayItems()
     }
-  });
-  input.focus();
-}
 
-function clearAllTasks() {
-  tasks = [];
-  localStorage.removeItem('tasks');
-  displayTasks();
-}
+    function displayItems() {
+      itemList.innerHTML = ''
+      items.forEach((item, index) => {
+        const li = document.createElement('li')
 
-function displayTasks() {
-  taskList.innerHTML = '';
-  for (let i = 0; i < tasks.length; i++) {
-    const task = tasks[i];
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <input type="checkbox" ${task.completed ? 'checked' : ''}>
-      <span class="${task.completed ? 'completed' : ''}">${task.description}</span>
-      <button class="edit-button">수정</button>
-      <button class="delete-button">삭제</button>
-    `;
-    li.querySelector('.delete-button').addEventListener('click', () => deleteTask(i));
-    li.querySelector('.edit-button').addEventListener('click', () => editTask(i));
-    li.querySelector('input[type="checkbox"]').addEventListener('change', () => toggleComplete(i));
-    taskList.appendChild(li);
-  }
-}
 
-addTaskButton.addEventListener('click', addTask);
-taskInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    addTask();
-  }
-});
-clearAllButton.addEventListener('click', clearAllTasks);
-displayTasks();
+        const span = document.createElement('span')
+        span.textContent = item.text
+        span.className = item.completed ? 'completed' : ''
+        li.appendChild(span)
+
+        const deleteButton = document.createElement('button')
+        deleteButton.className = 'delete-button'
+        deleteButton.textContent = 'x'
+        deleteButton.dataset.index = index
+        deleteButton.addEventListener('click', deleteItem)
+        li.appendChild(deleteButton)
+        itemList.appendChild(li)
+
+        const checkbox = document.createElement('input')
+        checkbox.type = 'checkbox'
+        checkbox.checked = item.completed
+        checkbox.addEventListener('click', toggleCompleted)
+        li.appendChild(checkbox)
+      })
+    }
+
+    function toggleCompleted(e) {
+      const index = e.target.parentElement.querySelector('.delete-button').dataset.index
+      items[index].completed = !items[index].completed
+      localStorage.setItem('items', JSON.stringify(items))
+      displayItems()
+    }
+
+    function deleteItem(e) {
+      const index = e.target.dataset.index
+      items.splice(index, 1)
+      localStorage.setItem('items', JSON.stringify(items))
+      displayItems()
+    }
+
+    function selectAllItems() {
+      items.forEach((item) => {
+        item.completed = true
+      })
+      localStorage.setItem('items', JSON.stringify(items))
+      displayItems()
+    }
+
+    function deleteAllItems() {
+      items = []
+      localStorage.setItem('items', JSON.stringify(items))
+      displayItems()
+    }
+
+    form.addEventListener('submit', addItem)
+    selectAllButton.addEventListener('click', selectAllItems)
+    deleteAllButton.addEventListener('click', deleteAllItems)
+    displayItems()

@@ -4,31 +4,39 @@
     font-weight: 700;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'PyeongChangPeace-Light';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
 }
-:root{
+
+:root {
     --light-bg: #FFF3F3;
     --box-bg: #FFD8D9;
     --deep-bg: #FFC6CC;
 
 }
-main{
-    border: 5px solid black;
+
+main {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
+    /* padding: 0 15%; */
     /* font-family: 'PyeongChangPeace-Bold'; */
 
 
 }
+
+div.left-wrap {
+    margin-left: 20px;
+}
+
 /* date today time */
-.today-short-wrapper{
-    display: flex; 
+.today-short-wrapper {
+    display: flex;
     justify-content: space-between;
     background: var(--light-bg);
     font-family: 'PyeongChangPeace-Light';
@@ -38,14 +46,17 @@ main{
     border-radius: 8px;
 
 }
-.today-short-wrapper .today-short{
+
+.today-short-wrapper .today-short {
     display: inline-flex;
-    vertical-align:bottom;
+    vertical-align: bottom;
 }
-.today-short .today-text{
+
+.today-short .today-text {
     padding: 4px;
 }
-.today-short .today-date{
+
+.today-short .today-date {
     background: var(--box-bg);
     padding: 4px;
     border-radius: 8px;
@@ -53,12 +64,15 @@ main{
 
 /* weekly goal */
 
-.monthly-container{
+.monthly-container {
     background: var(--deep-bg);
     border-radius: 8px;
     padding: 15px 5px 5px 5px;
     margin-bottom: 24px;
+
+    font-family: 'PyeongChangPeace-Light';
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(7, 100px);
@@ -76,22 +90,27 @@ main{
     background: var(--box-bg);
     border-radius: 8px;
 }
-.day-text{
+
+.day-text {
     padding: 12px 45px;
 }
-.grid-item input{
+
+.grid-item input {
     width: 100%;
     border: none;
     padding: 0;
 }
 
 /* 오늘의 글귀 */
-.today-note-wrapper{
+.today-note-wrapper {
     background: var(--deep-bg);
     padding: 6px 9px;
     border-radius: 8px;
+    font-family: 'PyeongChangPeace-Light';
+    margin-bottom: 24px;
 }
-.today-note{
+
+.today-note {
     width: 100%;
     display: flex;
     align-items: center;
@@ -100,14 +119,62 @@ main{
     padding: 2px;
 
 }
-.today-note input{
+
+.today-note input {
     width: 90%;
     border: none;
     background: var(--light-bg);
 }
 
+
+/* calendar */
+article#calendar {
+    background: var(--deep-bg);
+    border-radius: 8px;
+    font-family: 'PyeongChangPeace-Bold';
+
+    display: flex;
+    justify-content: center;
+}
+
+#calendar caption time {
+    color: #fff;
+}
+
+#calendar table {
+    width: 100%;
+    box-sizing: content-box;
+    margin: 0 25px 25px 25px;
+    border-collapse: collapse;
+    background: var(--light-bg);
+    border-radius: 10px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px var(--deep-bg);
+
+
+}
+
+caption {
+    font-size: 36px;
+    margin: 15px;
+}
+
+th,
+td {
+    padding: 30px;
+    border: 2px solid var(--deep-bg);
+    text-align: center;
+}
+
+th:first-child,
+td:first-child {
+    color: red;
+}
+
+
+
 /* 체크박스 스타일링 */
-input[type="checkbox"] {
+/* input[type="checkbox"] {
     display: none;
 }
 
@@ -137,7 +204,7 @@ input[type="checkbox"]:checked+label:before {
     font-size: 14px;
     text-align: center;
     line-height: 14px;
-}
+} */
 
 /* 가운데 줄 스타일링 */
 input[type="text"] {
@@ -154,6 +221,99 @@ input[type="text"]:focus {
 }
 
 
+/* plaaner */
+.right-wrpa {
+    width: auto;
+    height: 100vh;
+}
 
+article.planner {
+    background: var(--light-bg);
+    border: 8px solid var(--deep-bg);
+    border-radius: 8px;
+    padding: 5px;
+    
+    display: flex;
+    justify-content: center;
+    align-items:first baseline;
+    flex-direction: column;
 
-/* calendar */
+    font-family: 'PyeongChangPeace-Light';
+}
+article.planner > form{
+    width: 98%; 
+    box-sizing: border-box;
+    background: var(--light-bg);
+    border: 10px solid var(--box-bg);
+    padding: 10px;
+    border-radius: 5px;
+
+    display: flex; align-items: center;
+    justify-content: space-between;
+}
+article.planner > form > label{
+    font-size: 18px;
+}
+article.planner > form > input{
+    border: none;
+    background: var(--box-bg);
+    padding: 10px;
+    border-radius: 5px;
+}
+article.planner > form > button{
+    border: none;
+    background: var(--deep-bg);
+    font-size: 25px;;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 900;
+}
+article.planner ul {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    
+}
+
+article.planner ul li {
+    border-bottom: 1px solid gray; 
+    font-size: 26px;
+    margin: 12px auto 12px 0;
+}
+article.planner ul li input[type="checkbox"]{
+    background: transparent;
+}
+
+article.planner ul li input[type="checkbox"]:checked{
+    background: transparent;
+}
+
+input[type="checkbox"]:checked
+.completed {
+    text-decoration: line-through;
+}
+
+#item-list {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#item-list .button-wrap{
+    background: var(--box-bg);
+    padding: 5px;
+    border-radius: 5px;
+}
+#item-list .button-wrap button{
+    background: var(--deep-bg);
+    padding: 16px 100px;
+    border-radius: 5px;
+    font-family: 'PyeongChangPeace-Bold';
+    font-size: 26px;
+
+}
+#item-list .button-wrap #select-all{
+    margin-right: 16px;
+}

@@ -25,22 +25,22 @@ function calendar(newYear, newMonth) {
         days[i].textContent = date++;
     }
 
-    captionYear.textContent = year;
+    // captionYear.textContent = year;
     captionMonth.textContent = month + 1;
     timeEl.dateTime = `${year}-${month + 1}`;
 }
 
 
-const btns = document.querySelectorAll('button');
-btns.forEach((item) => {
-    item.addEventListener('click', () => {
-        if (item.classList.contains('prev')) {
-            calendar(year, --month);
-        } else {
-            calendar(year, ++month);
-        }
-    });
-});
+// const btns = document.querySelectorAll('button');
+// btns.forEach((item) => {
+//     item.addEventListener('click', () => {
+//         if (item.classList.contains('prev')) {
+//             calendar(year, --month);
+//         } else {
+//             calendar(year, ++month);
+//         }
+//     });
+// });
 
 let year = new Date().getFullYear(),
     month = new Date().getMonth() + 1;
