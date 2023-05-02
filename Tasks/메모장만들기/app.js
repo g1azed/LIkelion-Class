@@ -52,6 +52,7 @@ const form = document.querySelector('form')
       displayItems()
     }
 
+    // 여기입니다
     function deleteItem(e) {
       const index = e.target.dataset.index
       items.splice(index, 1)
