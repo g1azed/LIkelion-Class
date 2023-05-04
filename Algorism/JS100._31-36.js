@@ -68,8 +68,36 @@ for (let i = num.length; i > 0; i--) {
 }
 console.log(re_num);
 
+/* * 승표님 풀이 */
+//for문 사용
+let input = prompt('여러개의 숫자를 입력하시오( 구분: 공백 )');
+let inputArr = input.split(' ');
+let str = '';
+for (const a of inputArr) {
+    str = a + ' ' + str;
+}
+const answer = str;
+console.log(answer);
+//1 2 3 4 5 을 입력값으로 받았을 때
+/* inputArr = [1, 2, 3, 4, 5];
+str = '';
+for of 문에서
+a가 1일 때 
+str = 1 + ' ' + '';
+str = 1;
 
+a가 2일 때 
+str = 2 + ' ' + 1;
+str = 2 1;
 
+a가 3일 때 
+str = 3 + ' ' + '2 1';
+
+중략
+
+a가 5일 때
+str = 5 + ' ' + '4 3 2 1'
+str = '5 4 3 2 1'; */
 
 
 
@@ -106,7 +134,34 @@ if (unsorted === sorted) {
     console.log("No");
 }
 
+/* * 나경님 답안지 */
+const input = prompt('키를 공백으로 구분하여 입력하세요.').split(' ');
+const check = [...input].sort(function (a, b) {
+    return a - b;
+});
+let result = 'YES';
+for (let i = 0; i < check.length; i++) {
+    if (check[i] !== input[i]) {
+        result = 'NO';
+        break;
+    }
+}
+console.log(result);
+// check에서 input.sort로 하니까 원본 배열에도 변화가 생김 -> spread 처리
+// input과 check는 배열이라 둘을 비교연산자로 비교하면 배열의 참조를 비교함. for문으로 요소를 하나하나 비교
+// 배열을 다 비교하면 효율이 떨어지니까 값이 다른 인덱스를 찾으면 result에 NO를 넣고 break
 
+/* * 승표님 풀이 */
+let input = prompt('반 친구들의 키를 입력하세요.( 구분: 공백 )');
+let inputArr = input.split(' ').map((el) => parseInt(el));
+let flag = 0;
+for (let i = 0; i < inputArr.length - 1; i++) {
+    if (inputArr[i] > inputArr[i + 1]) flag++;
+    if (flag === 1) break;
+}
+if (!flag) {
+    console.log('YES');
+} else console.log('NO');
 
 
 
