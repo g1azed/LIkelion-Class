@@ -1,0 +1,21 @@
+node : node 버전확인 겸 터미널 node로 열음
+.exit : node 터미널 나가기
+ls : 폴더 내에 있는 구조들 확인
+cd 폴더이름 : 그 폴더 안으로 들어감
+cd .. : 들어가있는 폴더 상위로 나가기
+npx create-react-app 폴더이름 : node-module가 들어있는 react프로젝트 폴더를 만듬
+npm start : node-module이 들어있는 폴더에서 실행시켜야함. localhost:3000 으로 라이브서버가 켜짐
+ctrl + c : localhost 끄기
+npm run build : 파일들을 하나의 번들로 묶어서 빌드함. 그러면 build라는 폴더가 열림
+
+npx create-react-app 생성할폴더명 --template basic-react
+<aside>
+💡 멋쟁이사자처럼 프론트엔드 스쿨 수강생 분께서 아래 모듈을 만들어 주셨습니다. 이제 아래 모듈로 설치하시면 기본 세팅으로 불필요한 파일 없이 시작할 수 있습니다. (3기 박다은님께 감사드립니다 🥰 )
+
+npm 주소: [https://www.npmjs.com/package/cra-template-basic-react?activeTab=readme](https://www.npmjs.com/package/cra-template-basic-react?activeTab=readme)
+react template: [https://create-react-app.dev/docs/custom-templates](https://create-react-app.dev/docs/custom-templates)
+npm에 모듈 업로드해보기: [https://heropy.blog/2019/01/31/node-js-npm-module-publish/](https://heropy.blog/2019/01/31/node-js-npm-module-publish/)
+</aside>
+
+
+
