@@ -37,7 +37,7 @@ console.log(output);
 
 let num_arr = [];
 for(let i = 1; i<=20; i++){
-    num_arr.push(i);
+    num_arr.push(i); // 1 2 3 4 5 5 y/.. 20
 }    
 console.log(num_arr);
 let sum = 0;
@@ -55,14 +55,16 @@ console.log(sum);
 // 입력 : 10 9 8 7 6 5 4 3 2 1
 // 출력 : 10
 
-// let num = parseInt(prompt("숫자를 10개 입력해주세요"));
-// for(let i = 0; i < num.length; i++){
-//     num.sort( (a,b) => {
-//         return b - a;
-//     });
-//     console.log(num[0]);
-// }
-// console.log(num);
+let num = parseInt(prompt("숫자를 10개 입력해주세요"));
+for(let i = 0; i < num.length; i++){
+    num.sort( (a,b) => {
+        return b - a;
+    });
+    console.log(num[0]);
+}
+console.log(num);
+
+Math.max : Math 의 최댓값
 
 let numbers = prompt('10개의 숫자를 입력하세요').split(' ').map((n) => {
     return parseInt(n, 10);

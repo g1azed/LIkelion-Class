@@ -13,13 +13,13 @@
 
 let a =  parseInt(prompt("해당 월을 입력해주세요"));
 let b =  parseInt(prompt("해당 일을 입력해주세요"));
-const week = [ 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
-// 일 로 시작하면 자꾸 하루씩 빨리 나옴 이거 어케고침?ㅜㅜ
+const week = [ 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT' ];
+
 
 function getDayOfWeek(a,b){
     
-    const dayOfWeek = week[new Date(`'2022-${a}-${b}'`).getDay()];
-    // 템플릿리터럴 안에 따옴표넣는거,,,첨알았다
+    const dayOfWeek = week[new Date(`2023-${a}-${b}`).getDay()];
+    // 템플릿리터럴 안에 따옴표넣는거,,,첨알았다 근데 왜넣어야함?
     // dayOfweek 변수에 입력한 날짜의 요일을 반환하는 체이닝을 만들어서 week 배열에 넣음(?)
     console.log(dayOfWeek);
 }
@@ -40,55 +40,39 @@ let oneYear = 31536000;
 console.log( ( second / oneYear) )
 //사칙연산만 해서 초를 년으로 변환하면 될거같은데 어케함?
 
+/** 답안지 */
 let date = new Date();
 let year = date.getTime();
 year = Math.floor(year/(3600*24*365*1000)) + 1970;
+// 60초 * 60초 * 하루24시간 * 일년 365일 * getTime():밀리초 1000
 console.log(year);
 
+// 이것도 이해잘못함 ㅜㅜ
 
+// # 문제48 : 대소문자 바꿔서 출력하기
 
-# 문제48 : 대소문자 바꿔서 출력하기
+// 문자열이 주어지면 대문자와 소문자를 바꿔서 출력하는 프로그램을 작성하세요.
 
-문자열이 주어지면 대문자와 소문자를 바꿔서 출력하는 프로그램을 작성하세요.
+// 입출력
 
-입출력
-
-입력 : AAABBBcccddd
-출력 : aaabbbCCCDDD
+// 입력 : AAABBBcccddd
+// 출력 : aaabbbCCCDDD
 
 let str = prompt("문자를 적어주세요");
 let output = ' ';
-function pro(){
-    for(let value of str){ // for of 문으로 문자열을 분리
-        // console.log(value);
-        if(value === str.toUpperCase()){
-            output += str.toLowerCase();
-        }else{
-            output += str.toUpperCase();
-        }
-        return output;
+for(let value of str){ // for of 문으로 문자열을 분리
+    // console.log(value);
+    if(value === value.toUpperCase()){
+        output += value.toLowerCase();
+    }else{
+        output += value.toUpperCase();
     }
-}
+    // return output;
+} 
+나경승표짱~~
 
-console.log(pro(output));
+
 // 힝 다됐는데 왜 안되지ㅜ? 왜? ㅠㅠ??
-
-// change_str = str.toLowerCase().toUpperCase();
-// console.log(change_str);
-
-// function pro(str){
-//     for(let x of str){
-//         if(x == x.toUpperCase()){
-//             output += x.toLowerCase();
-//         }else{
-//             output += x.toUpperCase();
-//         }
-//         return output;
-//     }
-
-// }
-// console.log(pro(output));
-
 
 /*** 담안지  */
 let a = prompt('문자열을 입력하세요.');

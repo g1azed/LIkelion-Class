@@ -6,12 +6,12 @@
 // (소수 : 1과 자기 자신만으로 나누어떨어지는 1보다 큰 양의 정수)
 
 const n = prompt("숫자를 입력해주세요");
-function numPrise(n){
-    if(n == 1)
-    return true;
+function numPrise(n) {
+    if (n == 1)
+        return true;
 
-    for(let i =2; i<n; i++){
-        if( n % i === 0){
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0) {
             return false;
         }
     }
@@ -20,16 +20,36 @@ function numPrise(n){
 
 const prime = (n) => {
 
-    for(let i =2; i<n; i++){
+    for (let i = 2; i < n; i++) {
         n = 7;
-        if(n % i == 0){
+        if (n % i == 0) {
             return false;
         }
     }
     return true;
 }
 
+/** 답안지 */
+const num = prompt('숫자를 입력하세요.');
 
+function check_prime(num) {
+    for (let i = 2; i < num; i++) {
+        const result = num % i;
+        if (result === 0) {
+            console.log('NO');
+            return false;
+        }
+    }
+    if (num === 1) { // 만약 numdl 1이라면 NO 출력 글고 리턴함
+        console.log('NO');
+        return;
+    }
+    console.log('YES');
+}
+
+check_prime(num);
+
+    // => 전반적으로 이해못함ㅜ!
 
 
 // # 문제43 : 10진수를 2진수로
@@ -45,6 +65,13 @@ let ten_to_two = input_ten.toString(2);
 console.log(ten_to_two);
 
 // ☆prompt 로 입력받으면 문자로 받아지게 됩니다☆
+
+배열.unshift() : 앞에서부터 배열에 넣는거
+배열.shift() : 앞에서부터 배열에 빼는거
+
+배열.pop() : 뒤에서 배열에 빼는거
+배열.push() : 뒤에서 배열에 넣는거
+
 
 
 
@@ -65,7 +92,7 @@ let people = {
     이준: "01050412904",
     이호: "01050443904",
     이호준: "01050442903"
-  };
+};
 let peoplearr = Object.values(people);
 console.log(peoplearr);  // 왜 여기서부터 걸러지지??//오ㅑ???
 // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/values
@@ -86,6 +113,6 @@ console.log(peoplearr);  // 왜 여기서부터 걸러지지??//오ㅑ???
 /* * 답안지  */
 let result = new Set();
 for (let key in people) {
-  result.add(people[key]);
+    result.add(people[key]);
 }
 console.log(result.size); //size 는 set 객체 내 값의 개수를 반환합니다.
