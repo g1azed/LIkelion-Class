@@ -1,4 +1,4 @@
-#예제 5-6
+// #예제 5-6
 
 var fruit = ['apple','banana','peach'];
 var $ul = document.createElement('ul'); // 공통코드
@@ -20,10 +20,10 @@ document.body.appendChild($ul);
 // (B)를 외부로 분리하는 편이 나을 수도 있을 것.
 // * 즉 fruit를 인자로 받아 출력하는 형태
 
-...
+// ...
 var alertFruit =  function(fruit){
     alert('your choice is' + fruit); 
-    // 콜백함수를 외부로 꺼내서 변수에 저장
+    // 콜백함수를 외부로 꺼내서 변수에 저장 -> 직접 실행 가능
 }
 
 fruits.forEach(function(fruit){
