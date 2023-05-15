@@ -1,6 +1,6 @@
 // #예제 5-6
 
-var fruit = ['apple','banana','peach'];
+var fruits = ['apple','banana','peach'];
 var $ul = document.createElement('ul'); // 공통코드
 
 fruits.forEach(function(fruit){    // 콜백함수 A
@@ -21,6 +21,8 @@ document.body.appendChild($ul);
 // * 즉 fruit를 인자로 받아 출력하는 형태
 
 // ...
+var fruits = ['apple','banana','peach'];
+var $ul = document.createElement('ul'); // 공통코드
 var alertFruit =  function(fruit){
     alert('your choice is' + fruit); 
     // 콜백함수를 외부로 꺼내서 변수에 저장 -> 직접 실행 가능
@@ -31,9 +33,10 @@ fruits.forEach(function(fruit){
     $li.innerText = fruit;
     $li.addEventListener('click', alertFruit);
     $li.appendChild($li);
+    console.log(fruits[1])
 });
 document.body.appendChild($ul);
-alertFruit(fruit[1]);
+alertFruit(fruits[1]);
 
 
 
