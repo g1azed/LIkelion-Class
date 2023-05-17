@@ -18,4 +18,4 @@ npm에 모듈 업로드해보기: [https://heropy.blog/2019/01/31/node-js-npm-mo
 </aside>
 
 
-
+npx create-react-app 생성할폴더명 --template basic-react

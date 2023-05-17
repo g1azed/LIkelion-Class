@@ -1,0 +1,187 @@
+<div>
+    # 문제58 : 콤마 찍기
+
+    원범이는 편의점 아르바이트가 끝난 후 정산을 하고자 합니다.
+    정산을 빨리하고 집에 가고 싶은 원범이는 프로그램을 만들려고 합니다.
+    **숫자를 입력받고 천 단위로 콤마(,)를 찍어주세요.**
+    예를 들어, **123456789**를 입력받았으면 **123,456,789**를 출력해야 합니다.
+</div>
+
+<script>
+    // 숫자를 입력받기
+    let num = parseInt(prompt("숫자를 입력해주세요"));
+    console.log(num);
+    // 천단위로 콤마찍기 => 그럼 뒤에서부터 세자리마다 , 를 넣기 => 세자리마다 쪼개기
+    let thousand = num.toLocaleString();
+    // 세자리마다 , 넣기 치니까 바로 toLocaleString 이 나오더라고요 원랜 날짜를 언어별로 구분해서 나타내는디 근데 왜 연이은 숫자에서는 세자리마다 찍어주는지 몰겟음
+    console.log(thousand);
+
+
+    // 세자리마다 split으로 자르고 , 넣고 붙히기
+
+</script>
+
+
+
+<div>
+    # 문제59 : 빈칸채우기
+
+    총 문자열의 길이는 50으로 제한하고 사용자가 문자열을 입력하면 그 문자열을 가운데 정렬을 해주고, 나머지 빈 부분에는 '='을 채워 넣어주세요.
+</div>
+<script>
+    // 입력
+    // hi
+
+    // 출력
+    // ========================hi========================
+
+
+    // 최대 공간이 50인 문자열 선언
+    // let str = prompt('문자열을 입력해주세요');
+    // if (str.length <= 50) {
+    //     // sum 이라는 변수에 50 - str길이를 빼서 중간으로 나누기
+    //     let sum = 50 - str.length;
+    //     for (let i = 0; i <= 50; i++) {
+    //         sum.split(i / 2);
+    //     }
+    //     console.log(sum);
+    // }
+    // 만약 문자열 길이가 6이라면 나머지는 44
+    // 그럼 50 - 문자열길이
+    // => 다 틀려먹음
+    // let str = prompt('문자열을 입력해주세요');
+    // str.padStart(50, '=');
+    // str.padEnd(25, '=');
+    // console.log(str.padStart(25, '='));
+
+    const s = "hi";
+    const n = 25 + parseInt((s.length / 2), 10)
+
+    const left = s.padStart(n, '=');
+    console.log(left);
+    console.log(left.length);
+
+    const right = left.padEnd(50, '=');
+    console.log(right);
+    console.log(right.length);
+</script>
+
+
+<div>
+    # 문제60 : 번호 매기기
+
+    새 학기가 되어 **이름을 가나다 순서대로 배정하고 번호를 매기려고 합니다**.
+    데이터에 입력된 이름을 아래와 같이 출력해 주세요.
+
+    출력
+    번호: 1, 이름: 강은지
+    번호: 2, 이름: 강채연
+    번호: 3, 이름: 권윤일
+    번호: 4, 이름: 김민호
+    번호: 5, 이름: 김유정
+    번호: 6, 이름: 김진이
+    번호: 7, 이름: 김채리
+    번호: 8, 이름: 박지호
+    번호: 9, 이름: 박현서
+    번호: 10, 이름: 최성훈
+    번호: 11, 이름: 한지호
+    번호: 12, 이름: 홍유진
+</div>
+<script>
+    const students = ['강은지', '김유정', '박현서', '최성훈', '홍유진', '박지호', '권윤일', '김채리', '한지호', '김진이', '김민호', '강채연'];
+
+    //가나다 순 정렬 sort사용
+    students.sort();
+    console.log(students) // -> 그럼 배열형태로 인덱싱 번호가 매겨져서 나옴
+    for (let i = 1; i <= students.length; i++) {
+        console.log(`번호 : ${i}}, 이름: ${students[i]}`)
+    }
+
+</script>
+
+<div>
+    # 문제61 : 문자열 압축하기
+
+    문자열을 입력받고 연속되는 문자열을 압축해서 표현하고 싶습니다.
+
+    입력
+    aaabbbbcdddd
+
+    출력
+    a3b4c1d4
+</div>
+<script>
+    // 같은 문자를 찾고 그 문자의 개수 세기
+    // 출력 = 같은문자+그문자개수 
+
+    // 하나씩 자르기 -> 같은 데이터 찾기 -> 같은 데이터끼리 개수세기
+    let str = 'aaabbbbcdddd';
+    str.split('');
+
+    console.log(str);
+    let result = {};
+
+    function solution() {
+        str.forEach((x) => {
+            result[x] = (result[x] || 0) + 1;
+        });
+        console.log(result);
+    }
+    solution();
+
+
+
+    // 답안지
+    const user_s = new String(prompt('문자열을 입력하세요')); // 문자열 입력
+    let result_s = ''; // 결과에 넣을 변수 선언
+    let store_s = user_s[0]; // 입력받은 문자열의 첫번째 인덱스를 변수에 넣음
+    let count = 0; // 카운팅용
+
+    for (let i of user_s) {  // for of문 문자열의 i에서~
+        if (i === store_s) { // 첫번째 문자열이 i번째와 같다면
+            count += 1;  // 카운팅에 1을 더해라 
+        } else {
+            result_s += store_s + String(count);
+            store_s = i;
+            count = 1;
+        }
+    }
+
+    result_s += store_s + String(count);
+    console.log(result_s);
+
+
+
+    //다른 풀이코드
+    function solution(s) {
+        let answer = s.length;
+
+        for (let i = 1; i <= parseInt(s.length / 2); i++) {
+            let str = ""; //압축한 문자열 변수 저장
+            let cnt = 1; //압축한 횟수
+            let tempStr = s.substr(0, i); //압축하는 기준 문자열
+            let idx = 0; // s 문자열에서 압축하기 위한 문자열의 위치를 나타내는 변수
+
+            for (idx = i; idx <= s.length; idx += i) {
+                let nextStr = s.substr(idx, i);
+
+                if (tempStr === nextStr) {  //두번째 for문 안의 코드
+                    cnt += 1;
+                } else {
+                    if (cnt === 1) str = str + tempStr;
+                    else str = str + cnt + tempStr;
+
+                    cnt = 1;
+                    tempStr = nextStr;
+                }
+            }
+            //두번째 for문이 끝난 후의 코드
+            if (cnt === 1) str = str + tempStr;
+            else str = str + cnt + tempStr;
+            answer = Math.min(answer, str.length);
+        }
+
+        return answer;
+    }
+
+</script>

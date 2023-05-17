@@ -14,7 +14,7 @@
 
 const route = [];
 
-function hanoi(num, start, end, temp) {
+function hanoi(num, start, end, temp) {   
     //원판이 한 개일 때에는 바로 옮기면 됩니다.
     if (num === 1) {
         route.push([start, end]);

@@ -18,11 +18,12 @@
 // 출력2
 // NO
 
-
 const num_arr = parseInt(prompt("숫자를 입력해주세요. (띄어쓰기 필수)"));
 function solution() {
 
-    num_arr.sort((a,b) => a - b );
+    num_arr.sort((a,b) => {
+        return a - b
+    });
     console.log(num_arr);
 
     for (let i = 0; i < num_arr.length; i++) {
@@ -82,16 +83,49 @@ let nation_name = Object.keys(nationWidth);
 let nation_width = Object.values(nationWidth);
 // console.log(nation_name);
 // console.log(nation_width);
-let gap = Math.max.apply(null, values);
-let res = [];
+let gap = Math.max(nation_width);
+let res = '';
 
 for(let i in nation_name){
-    if(gap > Math.abs(nation_name[i][1] - k)){
-        gap = Math.abs(nation_name[i][1] - k);
+    if(gap > Math.abs(nation_width[i] - k)){
+        gap = Math.abs(nation_width[i] - k);
         res =  nation_name[i];
     }
     // Math.abs() : 주어진 숫자의 절대값을 반환. x(숫자)가 양수이거나 0이라면 x리턴 / x가 음수라면 x의반댓값(음수) 반환
+    console.log(i);
 }
-console.log(res[0], res[1] - k);
+console.log(res, gap);
 
 // undefined NaN 출력이네요 머지 코드이해가 잘 안돼요ㅠ
+
+
+const nationWidth = {
+	'korea': 220877,
+	'Rusia': 17098242,
+	'China': 9596961,
+	'France': 543965,
+	'Japan': 377915,
+	'England' : 242900,
+};
+
+const w = nationWidth['korea'];
+
+delete nationWidth['korea'];
+
+const entry = Object.entries(nationWidth);
+//  Object.entries() : -번째 [key,value]
+console.log(entry);
+const values = Object.values(nationWidth);
+
+//gap에 최댓값 저장
+let gap = Math.max.apply(null, values);
+let item = [];
+
+for (let i in entry){
+  if (gap > Math.abs(entry[i][1] - w)){
+    gap = Math.abs(entry[i][1] - w);
+    item = entry[i];
+  }
+}
+
+console.log(item[0], item[1] - w);
