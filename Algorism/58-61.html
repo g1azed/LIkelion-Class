@@ -64,6 +64,24 @@
     const right = left.padEnd(50, '=');
     console.log(right);
     console.log(right.length);
+    
+
+    // 승표왁
+    // let input = prompt('문자를 입력해주세요(50자 이내)');
+    let input = 'hi';
+    let symbolNum = 50 - input.length;
+    let symbolLeft = parseInt(symbolNum / 2);
+    let answer = '';
+    for (let i = 0; i < 50; i++) {
+        if (i === symbolLeft) {
+            answer += input;
+            i += input.length - 1;
+            continue;
+        }
+        answer += '=';
+    }
+    console.log(answer);
+
 </script>
 
 
@@ -94,7 +112,8 @@
     students.sort();
     console.log(students) // -> 그럼 배열형태로 인덱싱 번호가 매겨져서 나옴
     for (let i = 1; i <= students.length; i++) {
-        console.log(`번호 : ${i}}, 이름: ${students[i]}`)
+        console.log(`번호 : ${i}, 이름: ${students[i-1]}`)
+        // students[i-1]을 한 이유는 0번째 인덱스부터 안세고 1번째 인덱스부터 세기때문
     }
 
 </script>
@@ -115,20 +134,19 @@
     // 출력 = 같은문자+그문자개수 
 
     // 하나씩 자르기 -> 같은 데이터 찾기 -> 같은 데이터끼리 개수세기
-    let str = 'aaabbbbcdddd';
-    str.split('');
+    // let str = 'aaabbbbcdddd';
+    // str.split('');
 
-    console.log(str);
-    let result = {};
+    // console.log(str);
+    // let result = {};
 
-    function solution() {
-        str.forEach((x) => {
-            result[x] = (result[x] || 0) + 1;
-        });
-        console.log(result);
-    }
-    solution();
-
+    // function solution() {
+    //     str.forEach((x) => {
+    //         result[x] = (result[x] || 0) + 1;
+    //     });
+    //     console.log(result);
+    // }
+    // solution();
 
 
     // 답안지
@@ -150,38 +168,23 @@
     result_s += store_s + String(count);
     console.log(result_s);
 
+    // 홍수지 바보바보바보바보!!!!!!!!!! 문제 잘 알아라 진짜 ㅗㅗ
 
 
-    //다른 풀이코드
-    function solution(s) {
-        let answer = s.length;
-
-        for (let i = 1; i <= parseInt(s.length / 2); i++) {
-            let str = ""; //압축한 문자열 변수 저장
-            let cnt = 1; //압축한 횟수
-            let tempStr = s.substr(0, i); //압축하는 기준 문자열
-            let idx = 0; // s 문자열에서 압축하기 위한 문자열의 위치를 나타내는 변수
-
-            for (idx = i; idx <= s.length; idx += i) {
-                let nextStr = s.substr(idx, i);
-
-                if (tempStr === nextStr) {  //두번째 for문 안의 코드
-                    cnt += 1;
-                } else {
-                    if (cnt === 1) str = str + tempStr;
-                    else str = str + cnt + tempStr;
-
-                    cnt = 1;
-                    tempStr = nextStr;
-                }
-            }
-            //두번째 for문이 끝난 후의 코드
-            if (cnt === 1) str = str + tempStr;
-            else str = str + cnt + tempStr;
-            answer = Math.min(answer, str.length);
-        }
-
-        return answer;
+    // 승표왁
+    let input = prompt('문자열을 입력하세요');
+    // let input = 'aaabbbbcaaaaaddddz';
+    let count = 1;
+    let arr = Array.from({ length: 26 }, () => 0);
+    let answer = '';
+    for (let value of input) {
+    arr[value.charCodeAt() - 'a'.charCodeAt()] += 1;
     }
-
+    // console.log(arr);
+    for (let i = 0; i < 26; i++) {
+    if (arr[i] !== 0) {
+        answer += `${String.fromCharCode(97 + i)}${arr[i]}`;
+    }
+    }
+    console.log(answer);
 </script>

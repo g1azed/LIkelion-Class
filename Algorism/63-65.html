@@ -1,0 +1,134 @@
+<div>
+    # 문제63 : 친해지고 싶어
+
+    한국 대학교의 김한국 교수님은 학생들과 친해지기 위해서 딸에게 줄임말을 배우기로 했습니다.
+    딸은 '**복잡한 세상 편하게 살자**'라는 문장을 '**복세편살**'로 줄여 말합니다.
+
+    교수님이 줄임말을 배우기 위해 아래와 같이 **어떤 입력이 주어지면 앞 글자만 줄여 출력**하도록 해주세요.
+    입력은 한글 혹은 영어로 입력되며, 띄어쓰기를 기준으로 하여 짧은 형태로 출력합니다.
+</div>
+<script>
+    let str = '복잡한 세상 편하게 살자';
+    let str_s = str.split(' ');
+    let sum = '';
+    // console.log(str_s)
+    for (let i = 0; i <= str_s.length; i++) {
+        sum += str_s[i].slice(0, 1);
+
+        // if( i = str_s.length){
+        //     console.log(sum);
+        // }
+        // => 콘솔에 안찍힘
+    }
+    // 나오긴,,하는데 복 복세 복세편 복세편살 이렇게 ㄴㅏ옴 마지막꺼만 나오게 못하나
+</script>
+
+<div>
+    # 문제64 : 이상한 엘레베이터
+
+    정량 N에 정확히 맞춰야만 움직이는 화물용 엘리베이터가 있습니다.
+    화물은 7kg, 3kg 두 가지이며 팔이 아픈 은후는 가장 적게 화물을 옮기고 싶습니다.
+
+    예를 들어 정량이 24kg이라면 3kg 8개를 옮기는 것보다는
+    7kg 3개, 3kg 1개 즉 4개로 더 적게 옮길 수 있습니다.
+
+    **입력**
+    정량 N이 입력됩니다.
+
+    **출력**
+    가장 적게 옮길 수 있는 횟수를 출력합니다.
+    만약 어떻게 해도 정량이 N이 되지 않는다면 -1을 출력합니다.
+
+    [greedy Algorism]
+    : 선택의 순간마다 당장 눈앞에 보이는 최적의 상황만을 쫓아 최종적인 해답에 도달하는 방법
+
+    해결하는 방법 :
+    1. 선택 절차(Selection Procedure): 현재 상태에서의 최적의 해답을 선택한다.
+    2. 적절성 검사(Feasibility Check): 선택된 해가 문제의 조건을 만족하는지 검사한다.
+    3. 해답 검사(Solution Check): 원래의 문제가 해결되었는지 검사하고, 해결되지 않았다면 선택 절차로 돌아가 위의 과정을 반복한다.
+
+    탐욕 알고리즘을 적용할 문제의 2가지 조건 :
+    탐욕 알고리즘이 잘 작동하는 문제는 대부분 탐욕스런 선택 조건(greedy choice property)과 최적 부분 구조 조건(optimal substructure)이라는 두 가지 조건이 만족된다.
+    탐욕스런 선택 조건은 앞의 선택이 이후의 선택에 영향을 주지 않는다는 것이며, 최적 부분 구조 조건은 문제에 대한 최적해가 부분문제에 대해서도 역시 최적해라는 것이다.
+    탐욕적 선택 속성(Greedy Choice Property) : 앞의 선택이 이후의 선택에 영향을 주지 않는다.
+    최적 부분 구조(Optimal Substructure) : 문제에 대한 최종 해결 방법은 부분 문제에 대한 최적 문제 해결 방법으로 구성된다.
+</div>
+<script>
+    // 선택 절차 : 가장 무게가 높은 화물 선택
+
+    // let quantity = parseInt(prompt('숫자를 입력해주세요'))
+    let quantity = 24;
+    let num = 0; //개수
+    let left = 0; // 나머지
+
+    // 정량은 3의 배수여야함(정확히 맞아야 움직이니까)
+    if (quantity % 3 === 0) {
+        while (quantity % 7 >= 0) {
+            num += parseInt(quantity / 7);
+            console.log(num)
+            left += parseInt(quantity % 7);
+            // break; // break 위치 잘살피기 여기넣었다가 자꾸 위에 콘솔 결과만 출력댐ㅎㅎ;
+            while (left % 3 === 0) {
+                num += parseInt(left / 3);
+                console.log(num);
+                break;
+            }
+            break; // break 위치 잘살피기
+        }
+
+    } else {
+        console.log(false);
+    }
+
+    // 적절성 검사 : 선택에서의 합이 N을 초과하는지 확인
+    // 만약 초과한다면 마지막 화물 없애고, 더 작은 화물 push
+
+    // 해답 검사 : 적절성을 통해 나온 합이  N과 일치하는지 검사
+    // 만약 3이나 7이 남는다면 1번부터 반복
+
+    // 답안지
+    let N = parseInt(prompt('정량을 입력하세요'), 10);
+    let result = 0;
+
+    while (true) {
+        if (N % 7 === 0) {
+            result += parseInt(N / 7, 10);
+            console.log(result);
+            break;
+        }
+
+        N -= 3; // N에서 왜 3을빼는건가요?ㅜ  아 반복해서 3을빼는거군요 ㅇㅋㅇㅋ
+        result += 1; // 여기서 왜 +=1 을했는데 저기 위에서 출력되는건가요
+
+        if (N < 0) {
+            console.log(-1);
+            break;
+        }
+    }
+
+</script>
+
+<div>
+    #문제65 : 변형된 리스트
+
+    a = [1, 2, 3, 4]
+    b = [a, b, c, d]
+    이런 리스트가 있을 때 [[1, a], [b, 2], [3, c], [d, 4]] 이런 식으로 a, b 리스트가 번갈아가면서 출력되게 해주세요.
+</div>
+<script>
+    let a = [1, 2, 3, 4]
+    let b = ['a', 'b', 'c', 'd']
+
+    const arr = []
+
+    for (let i = 0; i < a.length; i++) {
+        if(i%2 !== 0){
+            arr.push([a[i],...b[i]]);
+        }else if(i%2 == 0){
+            arr.push([...b[i],a[i]]);
+        }
+
+    }
+    console.log(arr); 
+    // 출력시 b배열애들 따옴표 없애고싶은데,,ㅇ이게 가능한건지 몰겠음
+</script>
