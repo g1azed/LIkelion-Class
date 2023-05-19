@@ -13,14 +13,12 @@
     let sum = '';
     // console.log(str_s)
     for (let i = 0; i <= str_s.length; i++) {
-        sum += str_s[i].slice(0, 1);
-
-        // if( i = str_s.length){
-        //     console.log(sum);
-        // }
-        // => 콘솔에 안찍힘
+        sum += str_s[i].charAt(0);
+        // console.log(sum);
     }
+    console.log(sum);
     // 나오긴,,하는데 복 복세 복세편 복세편살 이렇게 ㄴㅏ옴 마지막꺼만 나오게 못하나
+    // 그리고 왜 자꾸 for문안에 쓴 메서드 오류뜨지? 결론은 뜨면서 
 </script>
 
 <div>
@@ -56,8 +54,9 @@
 <script>
     // 선택 절차 : 가장 무게가 높은 화물 선택
 
-    // let quantity = parseInt(prompt('숫자를 입력해주세요'))
-    let quantity = 24;
+    let quantity = parseInt(prompt('숫자를 입력해주세요'))
+    // let quantity = 24;
+    // 10 정량일때도 생각하긔 멍충아잉~~!!~!~!~!~
     let num = 0; //개수
     let left = 0; // 나머지
 
@@ -73,12 +72,14 @@
                 console.log(num);
                 break;
             }
-            break; // break 위치 잘살피기
+            break; 
         }
 
     } else {
-        console.log(false);
+        console.log(-1);
     }
+
+// 
 
     // 적절성 검사 : 선택에서의 합이 N을 초과하는지 확인
     // 만약 초과한다면 마지막 화물 없애고, 더 작은 화물 push
@@ -119,13 +120,13 @@
     let a = [1, 2, 3, 4]
     let b = ['a', 'b', 'c', 'd']
 
-    const arr = []
+    const arr = [];
 
     for (let i = 0; i < a.length; i++) {
         if(i%2 !== 0){
-            arr.push([a[i],...b[i]]);
+            arr.push([a[i],b[i]]);
         }else if(i%2 == 0){
-            arr.push([...b[i],a[i]]);
+            arr.push([b[i],a[i]]);
         }
 
     }
