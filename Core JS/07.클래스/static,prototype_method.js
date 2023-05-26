@@ -56,16 +56,21 @@ Square.prototype.getArea = function(){
 var sq = new Square(5);
 console.log(sq.getArea());
 // Square 클래스 변형
-var Square = function(width){
-    this.width = width;
-    this.height = width;
-}
-Square.prototype.getArea =  function(){
-    return this.width * this.height;
-}
+// var Square = function(width){
+//     this.width = width;
+//     this.height = width;
+// }
+// Square.prototype.getArea =  function(){
+//     return this.width * this.height;
+// }
 // 7-7
     //...
 var Square = function(width){
     Rectangle.call(this, width, width);
+    // Square 생성자 함수 내부에서 Rectangle 생성자 함수로써 호출
+    // 이때 인자 height자리에 width 를 전달.
 }
 Square.prototype = new Rectangle();
+// 메서드를 상속하기 위해 Square의 프로토타입 객체에 Rectangle 인스턴스를 부여함
+
+// 추가했지롱~

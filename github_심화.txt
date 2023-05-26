@@ -1,3 +1,6 @@
 mkdir 폴더명 : 폴더 생성
 ls -al : 
-code . : 현재 열려있는 디렉토리가 vsc로 열림베
+code . : 현재 열려있는 디렉토리가 vsc로 열림
+git status : 파일수정된거 자세히 알수있음
+git status -s : 파일 수정된거 간단히 알수있음
+git log : 최신의 커밋 로그를 알려줌 여기서 나갈땐 q 눌러서 나가기( :있을때 ) // 보통은 control + c
