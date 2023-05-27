@@ -2,5 +2,22 @@ mkdir 폴더명 : 폴더 생성
 ls -al : 
 code . : 현재 열려있는 디렉토리가 vsc로 열림
 git status : 파일수정된거 자세히 알수있음
-git status -s : 파일 수정된거 간단히 알수있음
+git status -s : 파일 수정된거 간단히 알수있음(아직 커밋안함)
 git log : 최신의 커밋 로그를 알려줌 여기서 나갈땐 q 눌러서 나가기( :있을때 ) // 보통은 control + c
+git add . : 지금까지 수정했던걸 모두 푸시 전 단계로(staging)
+git add 폴더/폴더/폴더/... : 적은 폴더만 푸시 전 단계로 (staging)
+git commit -m "커밋메시지": 커밋메시지 적고 커밋
+git push : 레파지토리에 푸시함
+
+// 맨처음 레파지토리 만들때 연결하는법
+git init 
+git remote add origin 복사한주소(HTTP~.git)
+git push --set-upstream origin master // 맨처음 git push햇을때 에러뜨면 걍 이렇게 치믄댐
+// 그담부턴 git push 로만도 쌉가능
+
+
+// 기존 레파지토리에 연결하는법
+git status
+git add 폴더/폴더/폴더/...
+git commit -m 
+git push
