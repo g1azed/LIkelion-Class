@@ -24,6 +24,7 @@ function TodoList() {
         }
     };
 
+
     const handleToggleTodo = (index) => {
         const updatedTodos = todos.map((todo, i) => {
             if (i === index) {
@@ -62,6 +63,7 @@ function TodoList() {
                     <li
                         key={index}
                         style={{ textDecoration: todo.checked ? 'line-through' : 'none' }}
+                        // 삼항연산자로 체크 됐을경우엔 'line-through'체크가 안되어있다면 None
                         className="list-li"
                     >
                         <input
