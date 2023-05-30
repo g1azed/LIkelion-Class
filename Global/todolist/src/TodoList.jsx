@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './reset.css'
 import './todolist.css'
 
 function TodoList() {
@@ -11,9 +12,26 @@ function TodoList() {
 
     const handleAddTodo = () => {
         if (inputValue.trim() !== '') {
-            setTodos([...todos, inputValue]);
+            const isDuplicate = todos.some((todo) => todo.text === inputValue);
+            if (isDuplicate) {
+                alert('이미 추가된 할 일입니다.');
+            } else if (inputValue.length > 20) {
+                alert('할 일은 20자 이하로 입력해주세요.');
+            } else {
+                setTodos([...todos, { text: inputValue, checked: false }]);
+            }
             setInputValue('');
         }
+    };
+
+    const handleToggleTodo = (index) => {
+        const updatedTodos = todos.map((todo, i) => {
+            if (i === index) {
+                return { ...todo, checked: !todo.checked };
+            }
+            return todo;
+        });
+        setTodos(updatedTodos);
     };
 
     const handleDeleteTodo = (index) => {
@@ -21,21 +39,38 @@ function TodoList() {
         setTodos(updatedTodos);
     };
 
+    const handleDeleteAll = () => {
+        setTodos([]);
+    };
+
     return (
         <div>
-            <h1 className="">Todo List</h1>
-            <input
-                type="text"
-                value={inputValue}
-                onChange={handleInputChange}
-                placeholder="Enter a todo"ㅣㅣ
-            />
-            <button onClick={handleAddTodo}>Add Todo</button>
+            <h1> THINGS TO DO : </h1>
+            <div className="add-wrap">
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder="Enter a todo"
+                />
+                <button className="btn add-btn" onClick={handleAddTodo}> Add </button>
+                <button className="btn delete-all-btn" onClick={handleDeleteAll}>Delete All</button>
+            </div>
+
             <ul>
                 {todos.map((todo, index) => (
-                    <li key={index}>
-                        {todo}
-                        <button onClick={() => handleDeleteTodo(index)}>X</button>
+                    <li
+                        key={index}
+                        style={{ textDecoration: todo.checked ? 'line-through' : 'none' }}
+                        className="list-li"
+                    >
+                        <input
+                            type="checkbox"
+                            checked={todo.checked}
+                            onChange={() => handleToggleTodo(index)}
+                        />
+                        <p className="list-text"> {todo.text} </p>
+                        <button className="btn delete-btn"onClick={() => handleDeleteTodo(index)}>Delete</button>
                     </li>
                 ))}
             </ul>
