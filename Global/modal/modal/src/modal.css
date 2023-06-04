@@ -1,0 +1,13 @@
+html{
+    background: salmon;
+}
+#root {
+    display: flex;
+    justify-content: center;
+}
+.modal-wrap{
+    box-sizing: border-box;
+    width: 500px;
+    background : #fff;
+
+}
