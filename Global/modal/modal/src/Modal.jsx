@@ -1,4 +1,5 @@
 import React from 'react';
+import './modal.css'
 
 const Modal = ({ isOpen, onClose, children }) => {
     if (!isOpen) {
@@ -6,10 +7,10 @@ const Modal = ({ isOpen, onClose, children }) => {
     }
 
     return (
-        <div className="modal">
+        <div className="modal-wrap">
             <div className="modal-content">
-                <span className="close" onClick={onClose}>&times;</span>
-                {children}
+                {children}  
+                <button className="close" onClick={onClose}> I LIKE COOKIES </button>
             </div>
         </div>
     );

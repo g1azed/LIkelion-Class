@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
+import './reset.css'
+import './modal.css'
+import cookieImg from './cookie.png';
+
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -13,11 +17,12 @@ const App = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleOpenModal}>Open Modal</button>
+    <div className="container">
+      <button className="open-btn" onClick={handleOpenModal}>COOKIE </button>
       <Modal isOpen={modalOpen} onClose={handleCloseModal}>
-        <h1>Modal Content</h1>
-        <p>This is the content of the modal.</p>
+        <img className="cookie-img" src={cookieImg} />
+        <h1 className="text-h1"> COOKIE !</h1>
+        <p className="text-p"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
       </Modal>
     </div>
   );
